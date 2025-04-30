@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,28 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				mystic: {
+					100: '#E5DEFF',
+					200: '#D6BCFA',
+					300: '#9b87f5',
+					400: '#7E69AB',
+					500: '#6E59A5',
+					600: '#1A1F2C',
+					700: '#13151E'
+				},
+				cosmic: {
+					100: '#D3E4FD',
+					200: '#0EA5E9',
+					300: '#0C7AB8',
+					400: '#075A8C',
+					500: '#033E61'
+				},
+				gold: {
+					100: '#FEF7CD',
+					200: '#F0E68C',
+					300: '#DAA520',
+					400: '#B8860B'
 				}
 			},
 			borderRadius: {
@@ -84,11 +107,34 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'pulse-soft': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.7' }
+				},
+				'twinkle': {
+					'0%, 100%': { opacity: '1', transform: 'scale(1)' },
+					'50%': { opacity: '0.5', transform: 'scale(0.8)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-soft': 'pulse-soft 4s ease-in-out infinite',
+				'twinkle': 'twinkle 5s ease-in-out infinite'
+			},
+			fontFamily: {
+				'display': ['Cormorant Garamond', 'serif'],
+				'body': ['Inter', 'sans-serif']
+			},
+			backgroundImage: {
+				'cosmic-gradient': 'linear-gradient(to right bottom, #1A1F2C, #033E61, #13151E)',
+				'mystic-gradient': 'linear-gradient(to right bottom, #7E69AB, #9b87f5, #D6BCFA)'
 			}
 		}
 	},
