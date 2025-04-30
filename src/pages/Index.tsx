@@ -1,11 +1,10 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import StarBackground from '@/components/StarBackground';
 import NavBar from '@/components/NavBar';
 import PredictionForm from '@/components/PredictionForm';
 import ReadingResult from '@/components/ReadingResult';
-import { Star, Compass, Planet } from 'lucide-react';
+import { Star, Compass, Moon } from 'lucide-react';
 
 const Index = () => {
   const [prediction, setPrediction] = useState<string | null>(null);
@@ -33,28 +32,26 @@ const Index = () => {
       
       <main className="container mx-auto px-4 py-12">
         {/* Hero Section */}
-        <section className="flex flex-col items-center justify-center min-h-[70vh] text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-3xl"
+        >
+          <h1 className="text-4xl md:text-6xl font-display font-bold bg-gradient-to-r from-mystic-200 via-gold-300 to-mystic-200 text-transparent bg-clip-text mb-6">
+            Discover Your Cosmic Destiny
+          </h1>
+          <p className="text-lg md:text-xl text-mystic-100 mb-8">
+            Unlock the secrets written in the stars. Our AI interprets your unique numerology, 
+            astrology, and cosmic energies to reveal what the universe has in store for you.
+          </p>
+          <a 
+            href="#form" 
+            className="cosmic-button text-lg"
           >
-            <h1 className="text-4xl md:text-6xl font-display font-bold bg-gradient-to-r from-mystic-200 via-gold-300 to-mystic-200 text-transparent bg-clip-text mb-6">
-              Discover Your Cosmic Destiny
-            </h1>
-            <p className="text-lg md:text-xl text-mystic-100 mb-8">
-              Unlock the secrets written in the stars. Our AI interprets your unique numerology, 
-              astrology, and cosmic energies to reveal what the universe has in store for you.
-            </p>
-            <a 
-              href="#form" 
-              className="cosmic-button text-lg"
-            >
-              Begin Your Journey
-            </a>
-          </motion.div>
-        </section>
+            Begin Your Journey
+          </a>
+        </motion.div>
         
         {/* Features Section */}
         <section className="py-20" id="readings">
@@ -71,7 +68,7 @@ const Index = () => {
               description="Discover how the vibrations of numbers in your birth date and name influence your life's journey and reveal your inner strengths."
             />
             <FeatureCard 
-              icon={<Planet className="h-10 w-10 text-cosmic-200" />}
+              icon={<Moon className="h-10 w-10 text-cosmic-200" />}
               title="Astrology"
               description="Learn how the positions of celestial bodies at your time of birth shape your personality and destiny through zodiac insights."
             />
