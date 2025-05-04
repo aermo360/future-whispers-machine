@@ -6,9 +6,11 @@ import NavBar from '@/components/NavBar';
 import PredictionForm from '@/components/PredictionForm';
 import ReadingResult from '@/components/ReadingResult';
 import { Star, Compass, Moon } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Index = () => {
   const [prediction, setPrediction] = useState<string | null>(null);
+  const { t } = useLanguage();
   
   const handleResultGenerated = (result: string) => {
     setPrediction(result);
@@ -40,17 +42,16 @@ const Index = () => {
           className="max-w-3xl"
         >
           <h1 className="text-4xl md:text-6xl font-display font-bold bg-gradient-to-r from-mystic-200 via-gold-300 to-mystic-200 text-transparent bg-clip-text mb-6">
-            Discover Your Cosmic Destiny
+            {t('hero.title')}
           </h1>
           <p className="text-lg md:text-xl text-mystic-100 mb-8">
-            Unlock the secrets written in the stars. Our AI interprets your unique numerology, 
-            astrology, and cosmic energies to reveal what the universe has in store for you.
+            {t('hero.subtitle')}
           </p>
           <a 
             href="#form" 
             className="cosmic-button text-lg"
           >
-            Begin Your Journey
+            {t('hero.cta')}
           </a>
         </motion.div>
         
@@ -58,25 +59,25 @@ const Index = () => {
         <section className="py-20" id="readings">
           <h2 className="text-3xl md:text-4xl font-display text-center text-white mb-16">
             <span className="bg-gradient-to-r from-mystic-200 to-gold-300 text-transparent bg-clip-text">
-              Mystical Insights Await
+              {t('features.title')}
             </span>
           </h2>
           
           <div className="grid md:grid-cols-3 gap-8">
             <FeatureCard 
               icon={<Star className="h-10 w-10 text-gold-300" />}
-              title="Numerology"
-              description="Discover how the vibrations of numbers in your birth date and name influence your life's journey and reveal your inner strengths."
+              title={t('features.numerology.title')}
+              description={t('features.numerology.description')}
             />
             <FeatureCard 
               icon={<Moon className="h-10 w-10 text-cosmic-200" />}
-              title="Astrology"
-              description="Learn how the positions of celestial bodies at your time of birth shape your personality and destiny through zodiac insights."
+              title={t('features.astrology.title')}
+              description={t('features.astrology.description')}
             />
             <FeatureCard 
               icon={<Compass className="h-10 w-10 text-mystic-300" />}
-              title="Tarot Guidance"
-              description="Receive mystical guidance from the ancient wisdom of tarot, offering clarity on your present circumstances and future possibilities."
+              title={t('features.tarot.title')}
+              description={t('features.tarot.description')}
             />
           </div>
         </section>
@@ -85,7 +86,7 @@ const Index = () => {
         <section className="py-20 flex flex-col items-center" id="form">
           <h2 className="text-3xl md:text-4xl font-display text-center text-white mb-12">
             <span className="bg-gradient-to-r from-gold-300 to-mystic-200 text-transparent bg-clip-text">
-              Unveil Your Reading
+              {t('form.title')}
             </span>
           </h2>
           
@@ -102,22 +103,22 @@ const Index = () => {
         <section className="py-20" id="testimonials">
           <h2 className="text-3xl md:text-4xl font-display text-center text-white mb-16">
             <span className="bg-gradient-to-r from-mystic-200 to-gold-300 text-transparent bg-clip-text">
-              Celestial Experiences
+              {t('testimonials.title')}
             </span>
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <TestimonialCard 
-              quote="The numerology reading was incredibly accurate. It's like the AI knew things about me that I've never shared with anyone."
-              author="Sarah K."
+              quote={t('testimonials.1.quote')}
+              author={t('testimonials.1.author')}
             />
             <TestimonialCard 
-              quote="My astrological reading provided insights that helped me make a major career decision. I'm so grateful for the guidance."
-              author="Michael T."
+              quote={t('testimonials.2.quote')}
+              author={t('testimonials.2.author')}
             />
             <TestimonialCard 
-              quote="The combined reading was comprehensive and enlightening. I've been referring back to it for months and it continues to resonate."
-              author="Elena R."
+              quote={t('testimonials.3.quote')}
+              author={t('testimonials.3.author')}
             />
           </div>
         </section>
@@ -131,7 +132,7 @@ const Index = () => {
             <h3 className="text-xl font-display text-mystic-100">Cosmic Insights</h3>
           </div>
           <p className="text-sm text-mystic-200">
-            © {new Date().getFullYear()} Cosmic Insights. All celestial rights reserved.
+            © {new Date().getFullYear()} Cosmic Insights. {t('footer.rights')}
           </p>
         </div>
       </footer>
