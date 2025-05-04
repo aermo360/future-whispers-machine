@@ -25,7 +25,7 @@ const translations = {
     // Features section
     'features.title': 'Mystical Insights Await',
     'features.numerology.title': 'Numerology',
-    'features.numerology.description': 'Discover how the vibrations of numbers in your birth date and name influence your life's journey and reveal your inner strengths.',
+    'features.numerology.description': 'Discover how the vibrations of numbers in your birth date and name influence your life journey and reveal your inner strengths.',
     'features.astrology.title': 'Astrology',
     'features.astrology.description': 'Learn how the positions of celestial bodies at your time of birth shape your personality and destiny through zodiac insights.',
     'features.tarot.title': 'Tarot Guidance',
