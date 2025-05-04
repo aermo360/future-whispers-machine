@@ -21,7 +21,7 @@ const PredictionForm: React.FC<PredictionFormProps> = ({ onResultGenerated }) =>
   const [predictionType, setPredictionType] = useState<PredictionType>('combined');
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,7 +39,7 @@ const PredictionForm: React.FC<PredictionFormProps> = ({ onResultGenerated }) =>
     
     try {
       // In a real app, this would connect to a backend API
-      const result = generatePrediction(name, birthdate, predictionType);
+      const result = generatePrediction(name, birthdate, predictionType, language);
       
       // Simulate API delay
       setTimeout(() => {
