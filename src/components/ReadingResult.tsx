@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ReadingResultProps {
   result: string;
@@ -11,6 +12,7 @@ interface ReadingResultProps {
 
 const ReadingResult: React.FC<ReadingResultProps> = ({ result, onReset }) => {
   const [paragraphs, setParagraphs] = useState<string[]>([]);
+  const { t } = useLanguage();
   
   useEffect(() => {
     // Split the result into paragraphs
@@ -36,7 +38,7 @@ const ReadingResult: React.FC<ReadingResultProps> = ({ result, onReset }) => {
   return (
     <Card className="cosmic-card w-full max-w-2xl overflow-hidden">
       <CardHeader className="bg-gradient-to-r from-cosmic-300 to-mystic-400 text-white">
-        <CardTitle className="text-2xl font-display text-center">Your Cosmic Reading</CardTitle>
+        <CardTitle className="text-2xl font-display text-center">{t('reading.title')}</CardTitle>
       </CardHeader>
       
       <CardContent className="p-6 sm:p-8">
@@ -64,7 +66,7 @@ const ReadingResult: React.FC<ReadingResultProps> = ({ result, onReset }) => {
               onClick={onReset}
               className="cosmic-button"
             >
-              New Reading
+              {t('reading.newReading')}
             </Button>
           </motion.div>
         </motion.div>

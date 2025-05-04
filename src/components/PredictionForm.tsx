@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { generatePrediction } from '@/utils/predictionGenerators';
 import { useToast } from '@/hooks/use-toast';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type PredictionType = 'numerology' | 'astrology' | 'tarot' | 'combined';
 
@@ -20,14 +21,15 @@ const PredictionForm: React.FC<PredictionFormProps> = ({ onResultGenerated }) =>
   const [predictionType, setPredictionType] = useState<PredictionType>('combined');
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!name || !birthdate) {
       toast({
-        title: "Missing information",
-        description: "Please enter both your name and birth date",
+        title: t('form.missingInfo'),
+        description: t('form.provideBoth'),
         variant: "destructive"
       });
       return;
@@ -46,8 +48,8 @@ const PredictionForm: React.FC<PredictionFormProps> = ({ onResultGenerated }) =>
       }, 2500);
     } catch (error) {
       toast({
-        title: "Error generating prediction",
-        description: "Please try again later",
+        title: t('form.error'),
+        description: t('form.tryAgain'),
         variant: "destructive"
       });
       setIsLoading(false);
@@ -58,14 +60,14 @@ const PredictionForm: React.FC<PredictionFormProps> = ({ onResultGenerated }) =>
     <Card className="cosmic-card w-full max-w-md p-6">
       <form onSubmit={handleSubmit} className="space-y-6">
         <h2 className="text-2xl font-display text-center text-white mb-6">
-          Discover Your Cosmic Path
+          {t('form.title')}
         </h2>
         
         <div className="space-y-2">
-          <Label htmlFor="name" className="text-mystic-100">Your Full Name</Label>
+          <Label htmlFor="name" className="text-mystic-100">{t('form.fullName')}</Label>
           <Input 
             id="name"
-            placeholder="Enter your full name"
+            placeholder={t('form.enterName')}
             className="cosmic-input"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -73,7 +75,7 @@ const PredictionForm: React.FC<PredictionFormProps> = ({ onResultGenerated }) =>
         </div>
         
         <div className="space-y-2">
-          <Label htmlFor="birthdate" className="text-mystic-100">Birth Date</Label>
+          <Label htmlFor="birthdate" className="text-mystic-100">{t('form.birthDate')}</Label>
           <Input 
             id="birthdate"
             type="date"
@@ -84,19 +86,19 @@ const PredictionForm: React.FC<PredictionFormProps> = ({ onResultGenerated }) =>
         </div>
         
         <div className="space-y-2">
-          <Label htmlFor="predictionType" className="text-mystic-100">Reading Type</Label>
+          <Label htmlFor="predictionType" className="text-mystic-100">{t('form.readingType')}</Label>
           <Select 
             onValueChange={(value) => setPredictionType(value as PredictionType)} 
             defaultValue={predictionType}
           >
             <SelectTrigger className="cosmic-input">
-              <SelectValue placeholder="Select a reading type" />
+              <SelectValue placeholder={t('form.selectReading')} />
             </SelectTrigger>
             <SelectContent className="bg-mystic-600 border border-mystic-300/30">
-              <SelectItem value="numerology" className="text-mystic-100">Numerology</SelectItem>
-              <SelectItem value="astrology" className="text-mystic-100">Astrology</SelectItem>
-              <SelectItem value="tarot" className="text-mystic-100">Tarot Reading</SelectItem>
-              <SelectItem value="combined" className="text-mystic-100">Complete Reading</SelectItem>
+              <SelectItem value="numerology" className="text-mystic-100">{t('form.numerology')}</SelectItem>
+              <SelectItem value="astrology" className="text-mystic-100">{t('form.astrology')}</SelectItem>
+              <SelectItem value="tarot" className="text-mystic-100">{t('form.tarot')}</SelectItem>
+              <SelectItem value="combined" className="text-mystic-100">{t('form.combined')}</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -112,10 +114,10 @@ const PredictionForm: React.FC<PredictionFormProps> = ({ onResultGenerated }) =>
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
-              Reading the Stars...
+              {t('form.loading')}
             </span>
           ) : (
-            "Reveal My Cosmic Reading"
+            t('form.submit')
           )}
         </Button>
       </form>

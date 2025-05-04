@@ -33,6 +33,25 @@ const translations = {
     
     // Form section
     'form.title': 'Unveil Your Reading',
+    'form.fullName': 'Your Full Name',
+    'form.birthDate': 'Birth Date',
+    'form.readingType': 'Reading Type',
+    'form.selectReading': 'Select a reading type',
+    'form.numerology': 'Numerology',
+    'form.astrology': 'Astrology',
+    'form.tarot': 'Tarot Reading',
+    'form.combined': 'Complete Reading',
+    'form.submit': 'Reveal My Cosmic Reading',
+    'form.loading': 'Reading the Stars...',
+    'form.enterName': 'Enter your full name',
+    'form.missingInfo': 'Missing information',
+    'form.provideBoth': 'Please enter both your name and birth date',
+    'form.error': 'Error generating prediction',
+    'form.tryAgain': 'Please try again later',
+    
+    // Reading Result
+    'reading.title': 'Your Cosmic Reading',
+    'reading.newReading': 'New Reading',
     
     // Testimonials section
     'testimonials.title': 'Celestial Experiences',
@@ -72,6 +91,25 @@ const translations = {
     
     // Form section
     'form.title': 'Odkryj Swój Odczyt',
+    'form.fullName': 'Twoje Pełne Imię i Nazwisko',
+    'form.birthDate': 'Data Urodzenia',
+    'form.readingType': 'Rodzaj Odczytu',
+    'form.selectReading': 'Wybierz rodzaj odczytu',
+    'form.numerology': 'Numerologia',
+    'form.astrology': 'Astrologia',
+    'form.tarot': 'Odczyt Tarota',
+    'form.combined': 'Pełny Odczyt',
+    'form.submit': 'Odkryj Mój Kosmiczny Odczyt',
+    'form.loading': 'Czytanie Gwiazd...',
+    'form.enterName': 'Wprowadź swoje pełne imię i nazwisko',
+    'form.missingInfo': 'Brakujące informacje',
+    'form.provideBoth': 'Proszę podać zarówno imię, jak i datę urodzenia',
+    'form.error': 'Błąd podczas generowania przepowiedni',
+    'form.tryAgain': 'Prosimy spróbować ponownie później',
+    
+    // Reading Result
+    'reading.title': 'Twój Kosmiczny Odczyt',
+    'reading.newReading': 'Nowy Odczyt',
     
     // Testimonials section
     'testimonials.title': 'Niebiańskie Doświadczenia',
